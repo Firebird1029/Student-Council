@@ -1,4 +1,4 @@
-var finishedMeetings = 2;
+var finishedMeetings = 3;
 
 /* http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
 function shuffle(array) {
