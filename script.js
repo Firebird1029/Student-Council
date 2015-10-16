@@ -1,3 +1,5 @@
+var finishedMeetings = 2;
+
 /* http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
 function shuffle(array) {
 	var currentIndex = array.length, temporaryValue, randomIndex ;
@@ -71,6 +73,8 @@ function generateCombos (randomness) {
 
 	colorCode();
 
+	removeFinishedMeetings();
+
 	console.log("Program finished.");
 }
 
@@ -102,9 +106,29 @@ function colorCode () {
 		.find("span:contains(" + people[i] + ")")
 		.each(function (j) {
 			$(this).css("backgroundColor", colors[j]);
-		})
-		;
+		});
 		// var peoplez = $('div:contains(' + people[i] + ')');
 		// console.log(peoplez);
 	}
+}
+
+function removeFinishedMeetings () {
+	console.log("Started removeFinishedMeetings function.");
+
+	for (var i = 1; i <= finishedMeetings; i++) {
+		$("body")
+		.find("h3:contains(" + i + ")")
+		.each(function () {
+			if ($(this).text().length == 8 + i.toString().length) {
+				$(this).css("text-decoration", "line-through");
+			}
+		});
+	}
+	$("body")
+		.find("h3:contains(" + i + ")")
+		.each(function () {
+			if ($(this).text().length == 8 + i.toString().length) {
+				$(this).css("font-weight", "bold");
+			}
+		});
 }
