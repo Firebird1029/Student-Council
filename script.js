@@ -1,4 +1,6 @@
-var finishedMeetings = 3;
+var finishedMeetings = 4,
+	meetingDays = ["Past", "Past", "Fri, Oct 16", "Mon, Oct 26", "Wed, Nov 4"],
+	shion;
 
 /* http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
 function shuffle(array) {
@@ -58,6 +60,7 @@ function generateCombos (randomness) {
 	$b = $("#left");
 	$b.empty();
 	$b.append("<h3>Meeting " + meeting + "</h3>");
+	$b.append("<h5>" + meetingDays[meeting - 1] + "</h5>");
 	$b.append("<span>" + "Becca" + "</span>, <span>" + "Florence" + "</span>");
 	
 	for (var i = 0; i < comb.length; i++) {
@@ -68,6 +71,11 @@ function generateCombos (randomness) {
 			$b = $("#right");
 		}
 		$b.append("<h3>Meeting " + meeting + "</h3>");
+		if (meetingDays.length >= meeting) {
+			$b.append("<h5>" + meetingDays[meeting - 1] + "</h5>");
+		} else {
+			$b.append("<h5>" + "Future" + "</h5>");
+		}
 		$b.append("<span>" + comb[i][0] + "</span>, <span>" + comb[i][1] + "</span>");
 	}
 
@@ -121,6 +129,7 @@ function removeFinishedMeetings () {
 		.each(function () {
 			if ($(this).text().length == 8 + i.toString().length) {
 				$(this).css("text-decoration", "line-through");
+				$(this)
 			}
 		});
 	}
