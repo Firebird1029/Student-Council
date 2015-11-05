@@ -1,4 +1,4 @@
-var finishedMeetings = 4,
+var finishedMeetings = 5,
 	meetingDays = ["Past", "Past", "Fri, Oct 16", "Mon, Oct 26", "Wed, Nov 4"],
 	shion;
 
@@ -60,7 +60,7 @@ function generateCombos (randomness) {
 	$b = $("#left");
 	$b.empty();
 	$b.append("<h3>Meeting " + meeting + "</h3>");
-	$b.append("<h5>" + meetingDays[meeting - 1] + "</h5>");
+	$b.append("<span class='date'>" + meetingDays[meeting - 1] + "</span><br />");
 	$b.append("<span>" + "Becca" + "</span>, <span>" + "Florence" + "</span>");
 	
 	for (var i = 0; i < comb.length; i++) {
@@ -72,9 +72,9 @@ function generateCombos (randomness) {
 		}
 		$b.append("<h3>Meeting " + meeting + "</h3>");
 		if (meetingDays.length >= meeting) {
-			$b.append("<h5>" + meetingDays[meeting - 1] + "</h5>");
+			$b.append("<span class='date'>" + meetingDays[meeting - 1] + "</span><br />");
 		} else {
-			$b.append("<h5>" + "Future" + "</h5>");
+			$b.append("<span class='date'>" + "Future" + "</span><br />");
 		}
 		$b.append("<span>" + comb[i][0] + "</span>, <span>" + comb[i][1] + "</span>");
 	}
@@ -113,7 +113,9 @@ function colorCode () {
 		$("body")
 		.find("span:contains(" + people[i] + ")")
 		.each(function (j) {
-			$(this).css("backgroundColor", colors[j]);
+			if (!$(this).hasClass("addedStyle") && !$(this).hasClass("date")) {
+				$(this).css("backgroundColor", colors[j]);
+			}
 		});
 		// var peoplez = $('div:contains(' + people[i] + ')');
 		// console.log(peoplez);
