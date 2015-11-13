@@ -1,5 +1,5 @@
-var finishedMeetings = 5,
-	meetingDays = ["Past", "Past", "Fri, Oct 16", "Mon, Oct 26", "Wed, Nov 4"],
+var finishedMeetings = 6,
+	meetingDays = ["Past", "Past", "Fri, Oct 16", "Mon, Oct 26", "Wed, Nov 4", "Fri, Nov 13", "Mon, Nov 23"],
 	shion;
 
 /* http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
@@ -56,12 +56,12 @@ function generateCombos (randomness) {
 	console.log(comb);
 	
 	var meeting = 1;
-	
+
 	$b = $("#left");
 	$b.empty();
 	$b.append("<h3>Meeting " + meeting + "</h3>");
 	$b.append("<span class='date'>" + meetingDays[meeting - 1] + "</span><br />");
-	$b.append("<span>" + "Becca" + "</span>, <span>" + "Florence" + "</span>");
+	$b.append("<span>" + "Becca" + "</span>, <span>" + "Florence" + "</span><br /><br />");
 	
 	for (var i = 0; i < comb.length; i++) {
 		meeting++;
@@ -76,7 +76,7 @@ function generateCombos (randomness) {
 		} else {
 			$b.append("<span class='date'>" + "Future" + "</span><br />");
 		}
-		$b.append("<span>" + comb[i][0] + "</span>, <span>" + comb[i][1] + "</span>");
+		$b.append("<span>" + comb[i][0] + "</span>, <span>" + comb[i][1] + "</span><br /><br />");
 	}
 
 	colorCode();
@@ -104,7 +104,7 @@ $(document).ready(function () {
 	// 	submitButton = this;
 	// })
 
-})
+});
 
 function colorCode () {
 	console.log("Started colorCode function.");
@@ -131,7 +131,6 @@ function removeFinishedMeetings () {
 		.each(function () {
 			if ($(this).text().length == 8 + i.toString().length) {
 				$(this).css("text-decoration", "line-through");
-				$(this)
 			}
 		});
 	}
