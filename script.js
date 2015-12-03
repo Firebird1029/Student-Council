@@ -1,5 +1,9 @@
-var finishedMeetings = 6,
-	meetingDays = ["Past", "Past", "Fri, Oct 16", "Mon, Oct 26", "Wed, Nov 4", "Fri, Nov 13", "Mon, Nov 23"],
+var finishedMeetings = 7,
+	meetingDays = ["Past", "Past",
+		"Fri, Oct 16", "Mon, Oct 26",
+		"Wed, Nov 4", "Fri, Nov 13", "Mon, Nov 23",
+		"Thu, Dec 3", "Fri, Dec 11"
+	],
 	shion;
 
 /* http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
