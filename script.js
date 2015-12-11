@@ -1,4 +1,7 @@
-var finishedMeetings = 7,
+"use strict";
+/* exported shion */
+
+var finishedMeetings = 8,
 	meetingDays = ["Past", "Past",
 		"Fri, Oct 16", "Mon, Oct 26",
 		"Wed, Nov 4", "Fri, Nov 13", "Mon, Nov 23",
@@ -7,12 +10,11 @@ var finishedMeetings = 7,
 	shion;
 
 /* http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
-function shuffle(array) {
-	var currentIndex = array.length, temporaryValue, randomIndex ;
+function shuffle (array) {
+	var currentIndex = array.length, temporaryValue, randomIndex;
 
 	// While there remain elements to shuffle...
-	while (0 !== currentIndex) {
-
+	while (currentIndex !== 0) {
 		// Pick a remaining element...
 		randomIndex = Math.floor(Math.random() * currentIndex);
 		currentIndex -= 1;
@@ -35,16 +37,18 @@ function shuffle(array) {
 // 	6: "Brandon"
 // }
 
-var people = ["", "Becca", "Florence", "Jason", "Kauai", "Sabine", "Brandon"];
-var colors = ["red", "orange", "yellow", "green", "blue", "violet"];
+var people = ["", "Becca", "Florence", "Jason", "Kauai", "Sabine", "Brandon"],
+	colors = ["red", "orange", "yellow", "green", "blue", "violet"],
+	shion;
 
 console.log(people);
 
 function generateCombos (randomness) {
 	var comb = [[]];
+	var i, j;
 	
-	for (var i = 1; i < 7; i++) {
-		for (var j = 1; j < 7; j++) {
+	for (i = 1; i < 7; i++) {
+		for (j = 1; j < 7; j++) {
 			if (i !== j && i < j) {
 				comb.push([people[i], people[j]]);
 			}
@@ -59,7 +63,8 @@ function generateCombos (randomness) {
 	});
 	console.log(comb);
 	
-	var meeting = 1;
+	var meeting = 1,
+		$b;
 
 	$b = $("#left");
 	$b.empty();
@@ -103,7 +108,7 @@ $(document).ready(function () {
 	// 	generateCombos(Number(submitButton.value));
 	// 	return false;
 	// })
-	
+
 	// $s.click(function () {
 	// 	submitButton = this;
 	// })
